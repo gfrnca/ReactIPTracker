@@ -1,5 +1,6 @@
 // GENERAL
 import { useEffect, useState } from "react"
+import HomePageTemplate from "../../components/templates/HomePageTemplate/HomePageTemplate";
 import api from "../../services/api";
 
 const Home = () => {
@@ -18,7 +19,7 @@ const Home = () => {
   }, [])
 
   return (
-    <div>ASDSD</div>
+    <HomePageTemplate />
   )
 }
 
