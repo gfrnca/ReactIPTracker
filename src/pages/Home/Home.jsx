@@ -9,13 +9,13 @@ const Home = () => {
   // FETCH API
   useEffect(() => {
     api
-      .get(`${''}?access_key=${process.env.REACT_APP_ACCESS_KEY}`)
+      .get(`${'177.33.142.184'}?access_key=${process.env.REACT_APP_ACCESS_KEY}`)
       .then((response) => setData(response.data))
       .catch((err) => {
         console.error("ERRO")
       });
 
-      console.log(data)
+      
   }, [])
 
   return (
