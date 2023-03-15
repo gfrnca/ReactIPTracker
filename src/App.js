@@ -9,9 +9,6 @@ import GlobalStyle from "./styles/global.js";
 // Components
 import Home from "./pages/Home/Home.jsx";
 
-
-
-
 function App() {
   return (
     <ThemeProvider theme={theme}>
