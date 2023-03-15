@@ -1,19 +1,24 @@
 // GENERAL
-import { useEffect } from "react"
+import { useEffect, useState } from "react"
 import api from "../../services/api";
 
 const Home = () => {
+  const [data, setData] = useState();
+
+  // FETCH API
   useEffect(() => {
     api
-      .get("187.109.40.194" + "?access_key=6f4f49b9af96be8c86cbf0f96c9e058b")
-      .then((response) => console.log(response.data))
+      .get(`${''}?access_key=${process.env.REACT_APP_ACCESS_KEY}`)
+      .then((response) => setData(response.data))
       .catch((err) => {
         console.error("ERRO")
       });
+
+      console.log(data)
   }, [])
 
   return (
-    <div>Home</div>
+    <div>ASDSD</div>
   )
 }
 
