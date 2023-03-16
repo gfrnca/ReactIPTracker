@@ -1,3 +1,7 @@
+// GENERAL
+import { useState } from "react"
+
+
 // COMPONENTS
 import { faPaperPlane } from "@fortawesome/free-solid-svg-icons"
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
@@ -9,12 +13,14 @@ import { HomePageHeaderWrapper } from "./HomePageHeader.styled"
 
 
 const HomePageHeader = () => {
+  const [ipAddress, setIpAddress] = useState('');
+
   return (
     <HomePageHeaderWrapper>
         <Title size="30px" color="#FFF">IP Address Tracker</Title>
 
         <form className="form-control">
-          <Field placeholder="Search for any IP Address" />
+          <Field onChange={(event) => {setIpAddress(event.target.value); console.log(ipAddress)}} placeholder="Search for any IP Address" />
           <div className="submit">
             <FontAwesomeIcon icon={faPaperPlane} />
           </div>
