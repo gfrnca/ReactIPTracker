@@ -19,8 +19,6 @@ const HomePageHeader = () => {
 
   // FETCH API
   const handleIpSubmit = () => {
-    console.log("teste");
-
     api
       .get(`${ipAddress}?access_key=${process.env.REACT_APP_ACCESS_KEY}`)
       .then((response) => {
@@ -28,7 +26,7 @@ const HomePageHeader = () => {
         console.log(response.data);
       })
       .catch((err) => {
-        console.error("ERRO");
+        return;
       });
   };
 

@@ -7,21 +7,19 @@ export const HomePageHeaderWrapper = styled.header`
     display: flex;
     flex-direction: column;
     align-items: center;
-    gap: 120px;
+    gap: 50px;
     padding-top: 40px;
 
     .form-control {
         display: flex;
         justify-content: center;
         width: auto;
-        position: relative;
         width: 40vw;
         min-width: 300px;
 
         .submit {
             right: 0px;
-            position: absolute;
-            width: 55px;
+            width: 65px;
             height: 100%;
             background: black;
             border-top-right-radius: 8px;
@@ -32,9 +30,12 @@ export const HomePageHeaderWrapper = styled.header`
             color: white;
             cursor: pointer;
             transition: 0.4s all;
+            
 
             &:hover {
                 background: #1a1a1a;
+                scale: 1.05;
+                border-radius: 8px;
             }
         }
     }
