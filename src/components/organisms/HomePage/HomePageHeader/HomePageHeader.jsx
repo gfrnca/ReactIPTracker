@@ -1,6 +1,9 @@
 // GENERAL
 import { useState } from "react";
 
+// API
+import api from "../../../../services/api";
+
 // COMPONENTS
 import { faPaperPlane } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
@@ -10,13 +13,24 @@ import { HomePageHeaderWrapper } from "./HomePageHeader.styled";
 
 // FONT AWESOME
 
-const HomePageHeader = (props) => {
+const HomePageHeader = () => {
   const [ipAddress, setIpAddress] = useState("");
+  const [data, setData] = useState();
 
-  function handleIpChange(event) {
-    setIpAddress(event.target.value);
-    props.handleIp(ipAddress);
-  }
+  // FETCH API
+  const handleIpSubmit = () => {
+    console.log("teste");
+
+    api
+      .get(`${ipAddress}?access_key=${process.env.REACT_APP_ACCESS_KEY}`)
+      .then((response) => {
+        setData(response.data);
+        console.log(response.data);
+      })
+      .catch((err) => {
+        console.error("ERRO");
+      });
+  };
 
   return (
     <HomePageHeaderWrapper>
@@ -26,10 +40,10 @@ const HomePageHeader = (props) => {
 
       <form className="form-control">
         <Field
-          onChange={(event) => handleIpChange(event)}
+          onChange={(event) => setIpAddress(event.target.value)}
           placeholder="Search for any IP Address"
         />
-        <div className="submit">
+        <div className="submit" onClick={handleIpSubmit}>
           <FontAwesomeIcon icon={faPaperPlane} />
         </div>
       </form>
