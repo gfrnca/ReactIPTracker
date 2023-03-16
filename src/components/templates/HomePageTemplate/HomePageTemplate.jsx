@@ -20,8 +20,12 @@ const HomePageTemplate = () => {
       });
   }, [])
 
+  function handleIp(ip) {
+    console.log(ip)
+  }
+
   return (
-    <HomePageHeader />
+    <HomePageHeader handleIp={handleIp} />
   )
 }
 
