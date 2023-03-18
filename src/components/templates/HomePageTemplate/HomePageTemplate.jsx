@@ -6,9 +6,16 @@ import HomePageHeader from "../../organisms/HomePage/HomePageHeader/HomePageHead
 
 // API
 import api from "../../../services/api";
+import HomePageIpContent from "../../organisms/HomePage/HomePageIpContent/HomePageIpContent";
+import { HomePageTemplateWrapper } from "./HomePageTemplate.styled";
 
 const HomePageTemplate = () => {
-  return <HomePageHeader />;
+  return (
+    <HomePageTemplateWrapper>
+      <HomePageHeader />
+      <HomePageIpContent />
+    </HomePageTemplateWrapper>
+  );
 };
 
 export default HomePageTemplate;
