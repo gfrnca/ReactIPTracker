@@ -10,10 +10,19 @@ import HomePageIpContent from "../../organisms/HomePage/HomePageIpContent/HomePa
 import { HomePageTemplateWrapper } from "./HomePageTemplate.styled";
 
 const HomePageTemplate = () => {
+  const [data, setData] = useState();
+
+  useEffect(() => {});
+  function handleDataProps(ipData) {
+    setData(ipData);
+
+    console.log(ipData);
+  }
+
   return (
     <HomePageTemplateWrapper>
-      <HomePageHeader />
-      <HomePageIpContent />
+      <HomePageHeader handleData={handleDataProps} />
+      <HomePageIpContent data={data} />
     </HomePageTemplateWrapper>
   );
 };

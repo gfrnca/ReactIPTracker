@@ -8,21 +8,24 @@ import api from "../../../../services/api";
 import { faPaperPlane } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { Field } from "../../../atoms/Field.styled";
-import { Title } from "../../../atoms/Title.styled";
+import { BoldTitle } from "../../../atoms/Title.styled";
 import { HomePageHeaderWrapper } from "./HomePageHeader.styled";
 
 // FONT AWESOME
 
-const HomePageHeader = () => {
+const HomePageHeader = (props) => {
   const [ipAddress, setIpAddress] = useState("");
   const [data, setData] = useState();
 
   // FETCH API
   const handleIpSubmit = () => {
     api
-      .get(`${ipAddress}?access_key=${process.env.REACT_APP_ACCESS_KEY}`)
+      .get(`${ipAddress}/json`)
       .then((response) => {
-        setData(response.data);
+        {
+          props.handleData(response.data);
+        }
+
         console.log(response.data);
       })
       .catch((err) => {
@@ -32,9 +35,9 @@ const HomePageHeader = () => {
 
   return (
     <HomePageHeaderWrapper>
-      <Title size="30px" color="#FFF">
+      <BoldTitle size="30px" color="#FFF">
         IP Address Tracker
-      </Title>
+      </BoldTitle>
 
       <form className="form-control">
         <Field
