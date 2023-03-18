@@ -31,7 +31,6 @@ export const HomePageHeaderWrapper = styled.header`
             cursor: pointer;
             transition: 0.4s all;
             
-
             &:hover {
                 background: #1a1a1a;
                 scale: 1.05;
