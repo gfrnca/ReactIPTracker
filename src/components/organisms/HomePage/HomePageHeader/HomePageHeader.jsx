@@ -15,7 +15,6 @@ import { HomePageHeaderWrapper } from "./HomePageHeader.styled";
 
 const HomePageHeader = (props) => {
   const [ipAddress, setIpAddress] = useState("");
-  const [data, setData] = useState();
 
   // FETCH API
   const handleIpSubmit = () => {
@@ -25,8 +24,6 @@ const HomePageHeader = (props) => {
         {
           props.handleData(response.data);
         }
-
-        console.log(response.data);
       })
       .catch((err) => {
         return;

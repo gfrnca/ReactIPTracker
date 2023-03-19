@@ -3,26 +3,26 @@ import { useState, useEffect } from "react";
 
 // COMPONENTS
 import HomePageHeader from "../../organisms/HomePage/HomePageHeader/HomePageHeader";
-
-// API
-import api from "../../../services/api";
 import HomePageIpContent from "../../organisms/HomePage/HomePageIpContent/HomePageIpContent";
+
+// CSS
 import { HomePageTemplateWrapper } from "./HomePageTemplate.styled";
 
 const HomePageTemplate = () => {
-  const [data, setData] = useState();
+  const [ip, setIp] = useState("");
+  const [city, setCity] = useState("");
+  const [country, setCountry] = useState("");
 
-  useEffect(() => {});
-  function handleDataProps(ipData) {
-    setData(ipData);
-
-    console.log(ipData);
+  function handleDataProps(data) {
+    setIp(data.ip);
+    setCity(data.city);
+    setCountry(data.country_name);
   }
 
   return (
     <HomePageTemplateWrapper>
       <HomePageHeader handleData={handleDataProps} />
-      <HomePageIpContent data={data} />
+      <HomePageIpContent ip={ip} city={city} country={country} />
     </HomePageTemplateWrapper>
   );
 };
