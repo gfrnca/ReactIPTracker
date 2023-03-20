@@ -13,18 +13,22 @@ const HomePageIpContent = (props) => {
       <HomePageIpContentWrapper>
         <div className="ip-info">
           <BoldTitle size="20px">IP Address</BoldTitle>
-          <p>{props.ip}</p>
+          {props.ip && <p>{props.ip}</p>}
         </div>
 
         <div className="ip-info">
           <BoldTitle size="20px">Location</BoldTitle>
-          <p>{props.city}</p>
-          <p>{props.country}</p>
+          {props.city && (
+            <>
+              <p>{props.city}</p>
+              <p>{props.country}</p>
+            </>
+          )}
         </div>
 
         <div className="ip-info">
           <BoldTitle size="20px">Timezone</BoldTitle>
-          <p>{props.timezone.slice(0, 3)}:00</p>
+          {props.timezone && <p>{props.timezone.slice(0, 3)}:00</p>}
         </div>
       </HomePageIpContentWrapper>
     </>
